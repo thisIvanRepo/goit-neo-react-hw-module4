@@ -1,0 +1,10 @@
+#root {
+  margin: 0 auto;
+}
+
+
+.errorText {
+  display: block;
+  text-align: center;
+  color: brown;
+}

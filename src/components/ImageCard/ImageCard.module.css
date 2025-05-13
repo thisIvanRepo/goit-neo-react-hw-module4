@@ -1,0 +1,16 @@
+.imgWraper {
+  max-width: 290px;
+  max-height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition-duration: 300ms;
+  border-radius: 5px;
+  cursor: zoom-in;
+}
+
+.imgWraper:hover {
+  scale: 1.1;
+}

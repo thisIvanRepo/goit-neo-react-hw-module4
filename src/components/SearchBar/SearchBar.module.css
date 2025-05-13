@@ -1,0 +1,42 @@
+.fieldForm {
+  margin-right: 15px;
+  min-width: 300px;
+  border: 1px solid  #a09c9c;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.btnForm {
+  min-width: 75px;
+  min-height: 30px;
+  color: #f0f8ff;
+  background-color: #535353;
+  outline: none;
+  border: 1px solid #a09c9c;
+  border-radius: 5px;
+
+  font-weight: 500;
+  line-height: 20px;
+  transition: 0.3s;
+}
+
+.btnForm:hover {
+  background-color: #f0f8ff;
+  color: #535353;
+}
+
+.errorMessage {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  background-color: #cf4949;
+  min-width: 300px;
+  min-height: 70px;
+  opacity: 0.5;
+  color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}

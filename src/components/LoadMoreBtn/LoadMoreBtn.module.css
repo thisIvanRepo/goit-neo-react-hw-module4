@@ -1,0 +1,20 @@
+.btn {
+  display: block;
+  margin: 0 auto;
+  min-width: 75px;
+  min-height: 30px;
+  color: #f0f8ff;
+  background-color: #535353;
+  outline: none;
+  border: 1px solid #a09c9c;
+  border-radius: 5px;
+
+  font-weight: 500;
+  line-height: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #f0f8ff;
+  color: #535353;
+}
