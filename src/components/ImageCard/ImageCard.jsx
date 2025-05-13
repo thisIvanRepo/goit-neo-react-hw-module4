@@ -1,16 +1,11 @@
 import React from "react";
 import style from "./ImageCard.module.css";
-import { useModal } from "../ModalProvider/ModalProvider";
 
-const ImageCard = ({ image, alt, objImg }) => {
-  const { setSelectedImage } = useModal();
+const ImageCard = ({ image, alt, onClick }) => {
   return (
     <>
       <li>
-        <div
-          className={style.imgWraper}
-          onClick={() => setSelectedImage(objImg)}
-        >
+        <div onClick={onClick} className={style.imgWraper}>
           <img src={image} alt={alt} />
         </div>
       </li>

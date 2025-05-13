@@ -1,4 +1,3 @@
-import { BounceLoader } from "react-spinners";
 import "./App.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -7,6 +6,15 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { ModalProvider } from "./components/ModalProvider/ModalProvider";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import Loader from "./components/Loader/Loader";
+// const of text from errors
+const TEXT_ERROR = "Oops some error... Pls reload page!";
+const INVALID_QUARY = "quary havent result...";
+const NO_MORE_RESULT = "🔚 No more results to load";
+// const of setting main loader
+const COLOR_LOADER = "#123312";
+const SPEAD_MAIN_LOADER = 2;
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,24 +72,18 @@ function App() {
   return (
     <>
       <SearchBar onSubmit={handleSubmit} />
-      {error && (
-        <h2 className="errorText">Oops some error... Pls reload page! </h2>
-      )}
-      {notFound && <h2 className="errorText"> quary havent result...</h2>}
+      {error && <ErrorMessage textError={TEXT_ERROR} />}
+      {notFound && <ErrorMessage textError={INVALID_QUARY} />}
       <ModalProvider>
         <ImageGallery hits={hits} />
         {isLoading && (
-          <BounceLoader
-            color="#123312"
-            speedMultiplier={2}
-            cssOverride={{ margin: "20px auto" }}
-          />
+          <Loader color={COLOR_LOADER} speedMultiplier={SPEAD_MAIN_LOADER} />
         )}
         {hits.length > 0 && !isLastPage && (
           <LoadMoreBtn onClick={handleLoadMore} />
         )}
         {isLastPage && hits.length > 0 && (
-          <p className="errorText"> 🔚 No more results to load</p>
+          <ErrorMessage textError={NO_MORE_RESULT} />
         )}
         <ImageModal />
       </ModalProvider>
