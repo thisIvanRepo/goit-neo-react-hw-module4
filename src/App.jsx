@@ -58,12 +58,13 @@ function App() {
     fetching();
   }, [query, page]);
 
-  const handleSubmit = useCallback(({ searchInput }, { resetForm }) => {
+  const handleSubmit = useCallback(({ searchInput }) => {
+    if (searchInput === query) return;
+
     setHits([]);
     setPage(1);
     setQuery(searchInput);
-    resetForm();
-  }, []);
+  }, [query]);
 
   const handleLoadMore = useCallback(() => {
     setPage((prev) => prev + 1);
